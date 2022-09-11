@@ -23,7 +23,11 @@ function everyOther(str, acc = "", i = 0) {
 
 /** isPalindrome: checks whether a string is a palindrome or not. */
 
-function isPalindrome(str) {}
+function isPalindrome(str, leftIndex = 0, rightIndex = str.length - 1) {
+	if (str[leftIndex] !== str[rightIndex]) return false;
+	if (rightIndex === Math.floor(str.length / 2)) return true;
+	return isPalindrome(str, leftIndex + 1, rightIndex - 1);
+}
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
